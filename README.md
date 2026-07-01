@@ -1,4 +1,4 @@
-<img width="2368" height="1792" alt="top_20260629_161900_294366" src="https://github.com/user-attachments/assets/aeb2aaa8-e47b-4504-89ca-840342331b97" /># 🥤 Reverse Vending Machine Vision Pipeline
+# 🥤 Reverse Vending Machine Vision Pipeline
 
 > 일회용컵 무인 반납기를 위한 컴퓨터 비전 판별 시스템
 > 듀얼 카메라(상단/측면) 기반 컵 종류·이물질·뚜껑·바코드 판별 로직을 설계 단계부터 단독으로 구축하고, 인증 시험 결과를 반영해 반복적으로 고도화한 프로젝트입니다.
