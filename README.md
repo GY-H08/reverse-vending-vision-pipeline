@@ -1,4 +1,4 @@
-# 🥤 Reverse Vending Machine Vision Pipeline
+<img width="2368" height="1792" alt="top_20260629_161900_294366" src="https://github.com/user-attachments/assets/aeb2aaa8-e47b-4504-89ca-840342331b97" /># 🥤 Reverse Vending Machine Vision Pipeline
 
 > 일회용컵 무인 반납기를 위한 컴퓨터 비전 판별 시스템
 > 듀얼 카메라(상단/측면) 기반 컵 종류·이물질·뚜껑·바코드 판별 로직을 설계 단계부터 단독으로 구축하고, 인증 시험 결과를 반영해 반복적으로 고도화한 프로젝트입니다.
@@ -109,6 +109,75 @@
 
 ---
 
+## 🔬 Example: Inference Result
+
+실제 운영 환경에서 캡처된 정상 컵 판별 사례입니다.  
+EasyVS 1차 판별과 ONNX 2차 검증이 모두 일치(`camera_model_agreed`)하여 최종 승인된 로그입니다.
+
+!<img width="2368" height="1792" alt="top_20260629_161900_294366" src="https://github.com/user-attachments/assets/68c27438-917d-46b8-a3a0-1d63bc84ae0c" />
+
+
+```json
+{
+  "file_id": "",
+  "image_file": "",
+  "camera": "top",
+  "barcode_data": "",
+  "cup_type": "플라스틱컵",
+  "cup_type_score": 92.875,
+  "holder": "",
+  "holder_score": 0,
+  "foreign_material": "이물질 없음",
+  "foreign_score": 92.875,
+  "whipping_cream": "플라스틱컵 휘핑크림 없음",
+  "whipping_cream_score": 95.875,
+  "water": "플라스틱 물 없음",
+  "water_score": 90.25,
+  "top_lid": "플라스틱컵 뚜껑 없음",
+  "top_lid_score": 94.125,
+  "passed": true,
+  "result": "",
+  "reason": null,
+  "reject_reasons": [],
+  "elapsed_sec": 7.992,
+  "timestamp": "2026-06-29 16:19:00",
+  "model_classification": {
+    "enabled": true,
+    "camera": "top",
+    "image_path": "images\\top\\approved\\images\\top_20260629_161900_294366.jpg",
+    "status": "ok",
+    "label": "normal_plastic",
+    "class_index": 0,
+    "confidence": 0.976546,
+    "probabilities": {
+      "normal_plastic": 0.976546,
+      "normal_paper": 0.015409,
+      "abnormal": 0.001382,
+      "paper_whipping": 0.006663
+    },
+    "passed": true,
+    "reason": null
+  },
+  "model_fusion": {
+    "mode": "agree_required",
+    "action": "camera_model_agreed",
+    "uncertain_action": "reject",
+    "camera_passed": true,
+    "camera_reason": null,
+    "camera_reject_reasons": [],
+    "model_passed": true,
+    "model_label": "normal_plastic",
+    "model_confidence": 0.976546,
+    "whipping_ai_recheck": false,
+    "whipping_ai_model_override": false,
+    "final_passed": true,
+    "final_reason": null,
+    "changed": false
+  }
+}
+
+---
+
 ## 📊 Results
 
 | 항목 | 개선 전 | 개선 후 |
@@ -120,6 +189,7 @@
 | 정상 컵 검증 | - | 다위치 투입 반복 테스트로 안정성 확인 |
 
 ---
+
 
 ## 🛠️ Tech Stack
 
